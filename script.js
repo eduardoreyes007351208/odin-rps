@@ -25,5 +25,9 @@ let getHumanChoice = () => {
 
 let computerChoice = getComputerChoice();
 let humanChoice = getHumanChoice();
+let computerScore = 0;
+let humanScore = 0;
+
+
 console.log(computerChoice);
 console.log(humanChoice)
