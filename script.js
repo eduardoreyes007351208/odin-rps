@@ -14,9 +14,16 @@ let getComputerChoice = () => {
             choice = 'Scissors';
             break;
     }
-    
     return choice;
 }
 
+let getHumanChoice = () => {
+    let answer = prompt("Please choose Rock, Paper, or Scissors");
+
+    return answer;
+}
+
 let computerChoice = getComputerChoice();
+let humanChoice = getHumanChoice();
 console.log(computerChoice);
+console.log(humanChoice)
