@@ -5,13 +5,13 @@ let getComputerChoice = () => {
 
     switch(randnum) {
         case 0:
-            choice = 'Rock';
+            choice = 'rock';
             break;
         case 1:
-            choice = 'Paper';
+            choice = 'paper';
             break;
         default:
-            choice = 'Scissors';
+            choice = 'scissors';
             break;
     }
     return choice;
@@ -26,29 +26,29 @@ let getHumanChoice = () => {
 let playRound = (computerChoice, humanChoice) => {
     if (humanChoice == computerChoice) {
         return "Tie!"
-    } else if (humanChoice == 'Rock' && computerChoice == 'Paper') {
+    } else if (humanChoice == 'rock' && computerChoice == 'paper') {
         computerScore++;
         return "You lose! Paper beats Rock"
-    } else if (humanChoice == 'Rock' && computerChoice == 'Scissors') {
+    } else if (humanChoice == 'rock' && computerChoice == 'scissors') {
         humanScore++;
         return "You win! Rock beats Scissors"
-    } else if (humanChoice == 'Paper' && computerChoice == 'Rock') {
+    } else if (humanChoice == 'paper' && computerChoice == 'rock') {
         humanScore++;
         return "You win! Rock beats Scissors"
-    }  else if (humanChoice == 'Paper' && computerChoice == 'Scissors') {
+    }  else if (humanChoice == 'paper' && computerChoice == 'scissors') {
         computerScore++;
         return "You lose! Paper beats Rock"
-    } else if (humanChoice == 'Scissors' && computerChoice == 'Rock') {
+    } else if (humanChoice == 'scissors' && computerChoice == 'rock') {
         computerScore++;
         return "You lose! Paper beats Rock"
-    } else if (humanChoice == 'Scissors' && computerChoice == 'Paper') {
+    } else if (humanChoice == 'scissors' && computerChoice == 'paper') {
         humanScore++;
         return "You win! Rock beats Scissors"
     }
 }
 
-let computerChoice = getComputerChoice();
-let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice().toLowerCase();
+let humanChoice = getHumanChoice().toLocaleLowerCase();
 let computerScore = 0;
 let humanScore = 0;
 
