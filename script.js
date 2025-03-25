@@ -1,4 +1,4 @@
-
+/* the function definition for getComputerChoice, which randomly generates computer choice */
 let getComputerChoice = () => {
     let randnum = Math.floor(Math.random() * 3);
     let choice = '';
@@ -17,42 +17,58 @@ let getComputerChoice = () => {
     return choice;
 }
 
+/* the function definition for getHumanChoice, which retrieves human choice */
 let getHumanChoice = () => {
     let answer = prompt("Please choose Rock, Paper, or Scissors");
 
     return answer;
 }
 
+/* The function definition for playRound, which plays a round of rock, paper, scissors */
 let playRound = (computerChoice, humanChoice) => {
     if (humanChoice == computerChoice) {
-        return "Tie!"
+        return "Tie!\n"
     } else if (humanChoice == 'rock' && computerChoice == 'paper') {
-        computerScore++;
-        return "You lose! Paper beats Rock"
+        cs++;
+        return "You lose! Paper beats Rock\n"
     } else if (humanChoice == 'rock' && computerChoice == 'scissors') {
-        humanScore++;
-        return "You win! Rock beats Scissors"
+        hs++;
+        return "You win! Rock beats Scissors\n"
     } else if (humanChoice == 'paper' && computerChoice == 'rock') {
-        humanScore++;
-        return "You win! Rock beats Scissors"
+        hs++;
+        return "You win! Paper beats Rock\n"
     }  else if (humanChoice == 'paper' && computerChoice == 'scissors') {
-        computerScore++;
-        return "You lose! Paper beats Rock"
+        cs++;
+        return "You lose! Scissors beats Paper\n"
     } else if (humanChoice == 'scissors' && computerChoice == 'rock') {
-        computerScore++;
-        return "You lose! Paper beats Rock"
+        cs++;
+        return 
     } else if (humanChoice == 'scissors' && computerChoice == 'paper') {
-        humanScore++;
-        return "You win! Rock beats Scissors"
+        hs++;
+        return "You win! Scissors beats Paper\n"
     }
 }
 
-let computerChoice = getComputerChoice().toLowerCase();
-let humanChoice = getHumanChoice().toLocaleLowerCase();
-let computerScore = 0;
-let humanScore = 0;
+/* the function definition for playGame, which plays the game for 5 rounds */
+let playGame = () => {
 
-console.log(computerChoice);
-console.log(humanChoice)
-console.log(playRound(computerChoice, humanChoice))
-console.log(`Computer Score: ${computerScore}, Human Score: ${humanScore}`)
+    for (let i = 0; i < 5; i++) {
+        let computerChoice = getComputerChoice().toLowerCase();
+        let humanChoice = getHumanChoice().toLocaleLowerCase();
+        console.log(`Round ${i+1}:\nComputer Choice: ${computerChoice}\nYour Choice: ${humanChoice}\n`,playRound(computerChoice, humanChoice),`Computer Score: ${cs}\nHuman Score: ${hs}`)
+    }
+
+    if (hs > cs) {
+        console.log(`You won the game!\nFinal Score:\nComputer: ${cs}\nYou: ${hs}`)
+    } else if (cs > hs) {
+        console.log(`You lost the game!\nFinal Score:\nComputer: ${cs}\nYou: ${hs}`)
+    } else {
+        console.log(`Tie Game!\nFinal Score:\nComputer: ${cs}\nYou: ${hs}`)
+    }
+}
+
+/* globally initializes the score */
+let cs = 0;
+let hs = 0;
+/* function call to start the game */
+playGame();
