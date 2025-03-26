@@ -70,8 +70,18 @@ let textGeneration = (cc, hc) => {
 
 let checkGoal = () => {
     if (hs >= goal) {
-        alert(`You Win!\n Final Score - Computer: ${cs} || Human: ${hs}`)
+        const resultText = document.querySelector('#results')
+        const scoresText = document.querySelector('#scores')
+
+        resultText.textContent = `YOU WON THE GAME`
+        resultText.setAttribute('style', 'color: green;')
+        scoresText.textContent = `Final Score - Computer: ${cs} || Human: ${hs}`
     } else if (cs >= goal) {
-        alert(`You Lose!\n Final Score - Computer: ${cs} || Human: ${hs}`)
+        const resultText = document.querySelector('#results')
+        const scoresText = document.querySelector('#scores')
+
+        resultText.textContent = `YOU LOST THE GAME`
+        resultText.setAttribute('style', 'color: red;')
+        scoresText.textContent = `Final Score - Computer: ${cs} || Human: ${hs}`
     }
 }
