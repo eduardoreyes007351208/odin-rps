@@ -9,24 +9,15 @@ const paperBtn = document.querySelector('#paper')
 const scissorsBtn = document.querySelector('#scissors')
 const resultsDiv = document.querySelector('#results')
 
+const btns = document.querySelectorAll('.btns')
 
-rockBtn.addEventListener('click', function(e) {
-    let computerChoice = getComputerChoice()
-    let humanChoice = getHumanChoice(rockBtn.id)
-    textGeneration(computerChoice, humanChoice)
+btns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        let computerChoice = getComputerChoice()
+        let humanChoice = getHumanChoice(btn.id)
+        textGeneration(computerChoice, humanChoice)
+    })
 })
-paperBtn.addEventListener('click', function(e) {
-    let computerChoice = getComputerChoice()
-    let humanChoice = getHumanChoice(paperBtn.id)
-    textGeneration(computerChoice, humanChoice)
-})
-scissorsBtn.addEventListener('click', function(e) {
-    let computerChoice = getComputerChoice()
-    let humanChoice = getHumanChoice(scissorsBtn.id)
-    textGeneration(computerChoice, humanChoice)
-})
-
-
 
 
 /* ----------------------------- Functions  -----------------------------*/
