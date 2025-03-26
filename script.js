@@ -4,9 +4,6 @@ let hs = 0;
 /* function call to start the game */
 /* playGame(); */
 
-const rockBtn = document.querySelector('#rock')
-const paperBtn = document.querySelector('#paper')
-const scissorsBtn = document.querySelector('#scissors')
 const resultsDiv = document.querySelector('#results')
 
 const btns = document.querySelectorAll('.btns')
@@ -62,25 +59,9 @@ let playRound = (computerChoice, humanChoice) => {
 let textGeneration = (cc, hc) => {
     let result = playRound(cc, hc)
 
-    const resultText = document.createElement('h1')
+    const resultText = document.querySelector('#results')
     resultText.textContent = result
-    resultsDiv.appendChild(resultText)
+
+    const scoresText = document.querySelector('#scores')
+    scoresText.textContent = `Score - Computer: ${cs} || Human: ${hs}`
 }
-
-/* the function definition for playGame, which plays the game for 5 rounds */
-/* let playGame = () => {
-
-    for (let i = 0; i < 5; i++) {
-        let computerChoice = getComputerChoice().toLowerCase();
-        let humanChoice = getHumanChoice().toLocaleLowerCase();
-        console.log(`Round ${i+1}:\nComputer Choice: ${computerChoice}\nYour Choice: ${humanChoice}\n`,playRound(computerChoice, humanChoice),`Computer Score: ${cs}\nHuman Score: ${hs}`)
-    }
-
-    if (hs > cs) {
-        console.log(`You won the game!\nFinal Score:\nComputer: ${cs}\nYou: ${hs}`)
-    } else if (cs > hs) {
-        console.log(`You lost the game!\nFinal Score:\nComputer: ${cs}\nYou: ${hs}`)
-    } else {
-        console.log(`Tie Game!\nFinal Score:\nComputer: ${cs}\nYou: ${hs}`)
-    }
-} */
