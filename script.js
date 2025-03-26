@@ -20,7 +20,6 @@ let getComputerChoice = () => {
 /* the function definition for getHumanChoice, which retrieves human choice */
 let getHumanChoice = (selection) => {
     let answer = selection;
-
     return answer;
 }
 
@@ -35,6 +34,14 @@ let playRound = (computerChoice, humanChoice) => {
         hs++;
         return `You win! ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}\n`
     }
+}
+
+let textGeneration = (cc, hc) => {
+    let result = playRound(cc, hc)
+
+    const resultText = document.createElement('h1')
+    resultText.textContent = result
+    resultsDiv.appendChild(resultText)
 }
 
 /* the function definition for playGame, which plays the game for 5 rounds */
@@ -62,10 +69,24 @@ let hs = 0;
 /* playGame(); */
 
 const rockBtn = document.querySelector('#rock')
+const paperBtn = document.querySelector('#paper')
+const scissorsBtn = document.querySelector('#scissors')
+const resultsDiv = document.querySelector('#results')
+
+
 rockBtn.addEventListener('click', function(e) {
     let computerChoice = getComputerChoice()
     let humanChoice = getHumanChoice(rockBtn.id)
-    
-    let result = playRound(computerChoice, humanChoice)
-    console.log(computerChoice, humanChoice, result)
+    textGeneration(computerChoice, humanChoice)
 })
+paperBtn.addEventListener('click', function(e) {
+    let computerChoice = getComputerChoice()
+    let humanChoice = getHumanChoice(paperBtn.id)
+    textGeneration(computerChoice, humanChoice)
+})
+scissorsBtn.addEventListener('click', function(e) {
+    let computerChoice = getComputerChoice()
+    let humanChoice = getHumanChoice(scissorsBtn.id)
+    textGeneration(computerChoice, humanChoice)
+})
+
