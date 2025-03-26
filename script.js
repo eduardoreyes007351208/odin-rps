@@ -28,24 +28,12 @@ let getHumanChoice = (selection) => {
 let playRound = (computerChoice, humanChoice) => {
     if (humanChoice == computerChoice) {
         return "Tie!\n"
-    } else if (humanChoice == 'rock' && computerChoice == 'paper') {
+    } else if (humanChoice == 'rock' && computerChoice == 'paper' || humanChoice == 'paper' && computerChoice == 'scissors' || humanChoice == 'scissors' && computerChoice == 'rock') {
         cs++;
-        return "You lose! Paper beats Rock\n"
-    } else if (humanChoice == 'rock' && computerChoice == 'scissors') {
+        return `You lose! ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}\n`
+    } else {
         hs++;
-        return "You win! Rock beats Scissors\n"
-    } else if (humanChoice == 'paper' && computerChoice == 'rock') {
-        hs++;
-        return "You win! Paper beats Rock\n"
-    }  else if (humanChoice == 'paper' && computerChoice == 'scissors') {
-        cs++;
-        return "You lose! Scissors beats Paper\n"
-    } else if (humanChoice == 'scissors' && computerChoice == 'rock') {
-        cs++;
-        return 
-    } else if (humanChoice == 'scissors' && computerChoice == 'paper') {
-        hs++;
-        return "You win! Scissors beats Paper\n"
+        return `You win! ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}\n`
     }
 }
 
