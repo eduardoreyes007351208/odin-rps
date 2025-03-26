@@ -18,8 +18,8 @@ let getComputerChoice = () => {
 }
 
 /* the function definition for getHumanChoice, which retrieves human choice */
-let getHumanChoice = () => {
-    let answer = prompt("Please choose Rock, Paper, or Scissors");
+let getHumanChoice = (selection) => {
+    let answer = selection;
 
     return answer;
 }
@@ -50,7 +50,7 @@ let playRound = (computerChoice, humanChoice) => {
 }
 
 /* the function definition for playGame, which plays the game for 5 rounds */
-let playGame = () => {
+/* let playGame = () => {
 
     for (let i = 0; i < 5; i++) {
         let computerChoice = getComputerChoice().toLowerCase();
@@ -65,10 +65,19 @@ let playGame = () => {
     } else {
         console.log(`Tie Game!\nFinal Score:\nComputer: ${cs}\nYou: ${hs}`)
     }
-}
+} */
 
 /* globally initializes the score */
 let cs = 0;
 let hs = 0;
 /* function call to start the game */
-playGame();
+/* playGame(); */
+
+const rockBtn = document.querySelector('#rock')
+rockBtn.addEventListener('click', function(e) {
+    let computerChoice = getComputerChoice()
+    let humanChoice = getHumanChoice(rockBtn.id)
+    
+    let result = playRound(computerChoice, humanChoice)
+    console.log(computerChoice, humanChoice, result)
+})
