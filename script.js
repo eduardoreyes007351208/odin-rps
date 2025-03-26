@@ -1,12 +1,9 @@
 /* globally initializes the score */
 let cs = 0;
 let hs = 0;
-/* function call to start the game */
-/* playGame(); */
-
-const resultsDiv = document.querySelector('#results')
-
-const btns = document.querySelectorAll('.btns')
+let goal = 5;
+const resultsDiv = document.querySelector('#results');
+const btns = document.querySelectorAll('.btns');
 
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -45,6 +42,11 @@ let getHumanChoice = (selection) => {
 
 /* The function definition for playRound, which plays a round of rock, paper, scissors */
 let playRound = (computerChoice, humanChoice) => {
+
+    setTimeout(() => {
+        checkGoal()
+    }, 1);
+
     if (humanChoice == computerChoice) {
         return "Tie!\n"
     } else if (humanChoice == 'rock' && computerChoice == 'paper' || humanChoice == 'paper' && computerChoice == 'scissors' || humanChoice == 'scissors' && computerChoice == 'rock') {
@@ -64,4 +66,12 @@ let textGeneration = (cc, hc) => {
 
     const scoresText = document.querySelector('#scores')
     scoresText.textContent = `Score - Computer: ${cs} || Human: ${hs}`
+}
+
+let checkGoal = () => {
+    if (hs >= goal) {
+        alert(`You Win!\n Final Score - Computer: ${cs} || Human: ${hs}`)
+    } else if (cs >= goal) {
+        alert(`You Lose!\n Final Score - Computer: ${cs} || Human: ${hs}`)
+    }
 }
