@@ -1,3 +1,35 @@
+/* globally initializes the score */
+let cs = 0;
+let hs = 0;
+/* function call to start the game */
+/* playGame(); */
+
+const rockBtn = document.querySelector('#rock')
+const paperBtn = document.querySelector('#paper')
+const scissorsBtn = document.querySelector('#scissors')
+const resultsDiv = document.querySelector('#results')
+
+
+rockBtn.addEventListener('click', function(e) {
+    let computerChoice = getComputerChoice()
+    let humanChoice = getHumanChoice(rockBtn.id)
+    textGeneration(computerChoice, humanChoice)
+})
+paperBtn.addEventListener('click', function(e) {
+    let computerChoice = getComputerChoice()
+    let humanChoice = getHumanChoice(paperBtn.id)
+    textGeneration(computerChoice, humanChoice)
+})
+scissorsBtn.addEventListener('click', function(e) {
+    let computerChoice = getComputerChoice()
+    let humanChoice = getHumanChoice(scissorsBtn.id)
+    textGeneration(computerChoice, humanChoice)
+})
+
+
+
+
+/* ----------------------------- Functions  -----------------------------*/
 /* the function definition for getComputerChoice, which randomly generates computer choice */
 let getComputerChoice = () => {
     let randnum = Math.floor(Math.random() * 3);
@@ -61,32 +93,3 @@ let textGeneration = (cc, hc) => {
         console.log(`Tie Game!\nFinal Score:\nComputer: ${cs}\nYou: ${hs}`)
     }
 } */
-
-/* globally initializes the score */
-let cs = 0;
-let hs = 0;
-/* function call to start the game */
-/* playGame(); */
-
-const rockBtn = document.querySelector('#rock')
-const paperBtn = document.querySelector('#paper')
-const scissorsBtn = document.querySelector('#scissors')
-const resultsDiv = document.querySelector('#results')
-
-
-rockBtn.addEventListener('click', function(e) {
-    let computerChoice = getComputerChoice()
-    let humanChoice = getHumanChoice(rockBtn.id)
-    textGeneration(computerChoice, humanChoice)
-})
-paperBtn.addEventListener('click', function(e) {
-    let computerChoice = getComputerChoice()
-    let humanChoice = getHumanChoice(paperBtn.id)
-    textGeneration(computerChoice, humanChoice)
-})
-scissorsBtn.addEventListener('click', function(e) {
-    let computerChoice = getComputerChoice()
-    let humanChoice = getHumanChoice(scissorsBtn.id)
-    textGeneration(computerChoice, humanChoice)
-})
-
